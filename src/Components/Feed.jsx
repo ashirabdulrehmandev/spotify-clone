@@ -1,15 +1,15 @@
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import "./Feed.scss";
 import animation from "../assets/animation.gif";
 
 function Feed({
-  dominantColor,
+  // dominantColor,
   filteredPlaylist,
   onCardClick,
   songIndex,
   isPlaying,
 }) {
-  const [color, setColor] = useState(`rgb(255, 255, 255)`); // default white
+  // const [color, setColor] = useState(`rgb(255, 255, 255)`); // default white
   // const [showAnimation, setShowAnimation] = useState(false); // default white
   // const handleClickFeed = (index)=>{
   //   console.log(index)
@@ -43,19 +43,19 @@ function Feed({
   //   }
   // };
 
-  useEffect(() => {
-    if (dominantColor && dominantColor.length === 3) {
-      // Delay setting color by 300ms for smooth transition
-      const timer = setTimeout(() => {
-        setColor(
-          `linear-gradient(180deg, rgba(${dominantColor[0]}, ${dominantColor[1]}, ${dominantColor[2]}, 1) 0%, rgba(18, 18, 18, 1) 100%)`
-        );
-      }, 300);
+  // useEffect(() => {
+  //   if (dominantColor && dominantColor.length === 3) {
+  //     // Delay setting color by 300ms for smooth transition
+  //     const timer = setTimeout(() => {
+  //       setColor(
+  //         `linear-gradient(180deg, rgba(${dominantColor[0]}, ${dominantColor[1]}, ${dominantColor[2]}, 1) 0%, rgba(18, 18, 18, 1) 100%)`
+  //       );
+  //     }, 300);
 
-      // Cleanup timeout if component unmounts or dominantColor changes
-      return () => clearTimeout(timer);
-    }
-  }, [dominantColor]);
+  //     // Cleanup timeout if component unmounts or dominantColor changes
+  //     return () => clearTimeout(timer);
+  //   }
+  // }, [dominantColor]);
 
   // Handle case when filteredPlaylist is undefined or empty
   const safeFilteredPlaylist = Array.isArray(filteredPlaylist)
@@ -67,7 +67,7 @@ function Feed({
       <div
         className="feedMain"
         style={{
-          background: color,
+        
         }}
       >
         {safeFilteredPlaylist.length > 0 ? (
