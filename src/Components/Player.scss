@@ -1,0 +1,158 @@
+@use "reusables" as *;
+@mixin icon($color: $primary-white, $padd: 8px) {
+  height: calc($iconsize * 0.65);
+  width: calc($iconsize * 0.65);
+  color: $color;
+  padding: $padd;
+  cursor: pointer;
+  margin-right: -0.25rem;
+  :hover{
+    color: $primary-white;
+  }
+}
+.sliderBar {
+  appearance: none;
+  background: $bg-lightest;
+  overflow: hidden;
+  border-radius: 5px;
+  height: 0.25rem;
+}
+.sliderBar::-webkit-slider-thumb {
+  appearance: none;
+  width: 0px;
+  height: 12px;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 1;
+  box-shadow: -400px 0 0 400px white;
+}
+.sliderBar:hover::-webkit-slider-thumb {
+  box-shadow: -400px 0 0 400px green;
+}
+#player {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 7vh;
+  background-color: black;
+  // margin: 0.5rem;
+  padding-bottom: 2rem;
+  // margin-bottom: 2rem;
+  padding: 0.5rem;
+  #song-info {
+    display: flex;
+    align-items: center;
+
+    img {
+      object-fit: cover;
+      width: $songPicSize;
+      height: $songPicSize;
+      border: none;
+      border-radius: 5%;
+    }
+    #text {
+      display: flex;
+      flex-direction: column;
+      margin-left: 1rem;
+      #song-name {
+        text-align: center;
+        font-size: 0.85rem;
+        color: white;
+      }
+      #singer-name {
+        color: $bg-lightest;
+        font-size: small;
+      }
+    }
+    #add-icon {
+      @include icon-smaller;
+      margin-left: 1rem;
+    }
+  }
+  #player-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    margin-left: 6rem;
+    #top {
+      display: flex;
+      align-items: center;
+      margin-bottom: -0.25rem;
+      #shuffle,
+      #repeat {
+        @include icon-smaller($bg-lightest);
+      }
+      #backwards,
+      #forwards {
+        @include icon-small($bg-lightest);
+        cursor: pointer;
+      }
+      #pause {
+        @include icon-large;
+      }
+      #play {
+        @include icon-large;
+      }
+    }
+    #bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 39rem;
+      height: fit-content;
+      .sliderBar {
+        width: 35rem;
+        height: 0.25rem;
+      }
+      span {
+        font-size: 0.75rem;
+        font-weight: 400;
+        color: $bg-lightest;
+      }
+      // #seek:hover::-webkit-slider-thumb::after{
+      //     opacity: 1;
+      // }
+    }
+  }
+  #others {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    #nowPlayingIcon {
+      @include icon($bg-lightest);
+    }
+    #lyricsIcon {
+      @include icon($bg-lightest);
+    }
+    #queueIcon {
+      @include icon($bg-lightest);
+    }
+    #connectDeviceIcon {
+      @include icon($bg-lightest);
+    }
+    #volumeIcon {
+      @include icon($bg-lightest);
+    }
+    #miniPlayerIcon {
+      @include icon($bg-lightest);
+      height: calc($iconsize * 0.85);
+      width: calc($iconsize * 0.85);
+    }
+    #fullScreenIcon {
+      @include icon($bg-lightest);
+    }
+    #volumeSlider {
+      width: 5.5rem;
+    }
+  }
+}
+.toggleColor{
+  color: #3BE477 !important;
+  :hover{
+    color: #3BE477 !important;
+  }
+}

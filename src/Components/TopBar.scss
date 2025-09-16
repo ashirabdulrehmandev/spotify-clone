@@ -1,0 +1,111 @@
+@use 'reusables' as *;
+* {
+  padding: 0%;
+  margin: 0%;
+}
+#topbar {
+  display: flex;
+  justify-content: space-between;
+  margin: 0rem 0.75rem 0.25rem 0.75rem;
+  min-width: fit-content;
+  padding-right: 7.75rem;
+
+  #spotify-icon {
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    @include icon-normal();
+    width: $iconsize*1.5;
+    height: $iconsize*1.5;
+  }
+
+  #topbar__group1 {
+    display: flex;
+    align-items: center;
+    margin-left: 30rem;
+    #home {
+      @include icon-small();
+      padding: 0.7rem;
+      background-color: $bg-lighter;
+      @include rounded();
+    }
+    #searchBox {
+      @include pill();
+      display: flex;
+      height: 5vh;
+      min-height: fit-content;
+      width: auto;
+      background-color: $bg-lighter;
+      align-items: center;
+      margin-left: 0.5rem;
+
+      #searchIcon {
+        @include icon-small();
+        padding: 0.7rem;
+        color: $bg-lightest;
+        // border-radius: 50%;
+      }
+      input {
+        background-color: $bg-lighter;
+        color: white;
+        border: none;
+        outline: none;
+        width: 20vw;
+      }
+      input::placeholder {
+        color: $bg-lightest;
+      }
+      #line {
+        background-color: $bg-lightest;
+        height: 35px;
+        width: 1px;
+      }
+      #explore-icon {
+        @include icon-small($bg-lightest);
+        padding: 0.7rem;
+        // border-radius: 50%;
+      }
+    }
+  }
+  #topbar__group2 {
+    display: flex;
+    align-items: center;
+    #premium {
+      @include pill();
+      background-color: $primary-white;
+      border: none;
+      height: 1.85rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      font-weight: bolder;
+    }
+    #install-btn {
+        @include btn-1();
+      #icon {
+        @include icon-smaller($bg-lightest);
+        margin-right: 0.25rem;
+        margin-left: 1rem;
+      }
+    }
+    #notification-btn {
+        @include btn-1();
+        margin-left: 2.5rem;
+        #icon {
+            @include icon-smaller($bg-lightest);
+          }
+    }
+    #profile{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include rounded();
+        background-color: $bg-lighter;
+        padding: 0.15rem;
+        margin-left: 1.5rem;
+        img{
+            @include rounded();
+            @include icon-normal();
+            object-fit: cover;
+        }
+    }
+  }
+}

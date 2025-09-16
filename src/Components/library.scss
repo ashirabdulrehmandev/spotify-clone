@@ -1,0 +1,158 @@
+@use "reusables" as *;
+$pin-color: rgb(13, 255, 13);
+
+#library {
+  display: flex;
+  flex-direction: column;
+  // flex-grow: 1;
+  width: 15vw;
+  min-width: min-content;
+  height: 96% !important;
+  background-color: $bg-light;
+  margin: 0.5rem;
+  padding: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  #Group1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    #yourLibrary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      #group1 {
+        display: flex;
+        align-items: center;
+        #library-icon {
+          @include icon-small($bg-lightest);
+          :hover {
+            cursor: pointer;
+          }
+        }
+        span {
+          color: $bg-lightest;
+          margin-left: 0.5rem;
+          font-size: large;
+          :hover {
+            cursor: pointer;
+          }
+        }
+      }
+      #group2 {
+        display: flex;
+        align-items: center;
+        #add-icon {
+          @include icon-small($bg-lightest);
+          :hover {
+            cursor: pointer;
+          }
+        }
+        #expand-icon {
+          @include icon-small($bg-lightest);
+          transform: rotate(180deg);
+          :hover {
+            cursor: pointer;
+            background-color: $bg-light;
+          }
+        }
+      }
+    }
+    #group3 {
+      margin-left: 0.5rem;
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      span {
+        border-radius: 25px;
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        background-color: $bg-lighter;
+        // margin-left: 1rem;
+      }
+      #tag1 {
+        margin-left: 1rem;
+      }
+    }
+    #group4 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      #icon-g1 {
+        @include icon-smaller($bg-lightest);
+      }
+      #icon-g2 {
+        display: flex;
+        align-items: center;
+        span {
+          font-size: small;
+          color: $bg-lightest;
+        }
+        #search {
+          @include icon-smaller($bg-lightest);
+        }
+      }
+    }
+  }
+  #Group2 {
+    #library-item {
+      display: flex;
+      margin-bottom: 1rem;
+
+      img {
+        height: calc($iconsize * 1.5);
+        width: calc($iconsize * 1.5);
+        border: none;
+        border-radius: 5%;
+        object-fit: cover;
+      }
+      #sub-left {
+        margin-left: 1rem;
+        #span1 {
+          color: #ffffffc5;
+          font-weight: bold;
+        }
+        #sub-down {
+          display: flex;
+          align-items: center;
+          margin-left: -0.75rem;
+          #pin-icon {
+            @include icon-smaller($pin-color);
+          }
+          #group {
+            display: flex;
+            align-items: center;
+            margin-left: -0.5rem;
+
+            #span1 {
+              font-size: small;
+              color: $bg-lightest;
+              margin-left: 0.25rem;
+            }
+            #dot {
+              // @include icon-smaller($bg-light);
+              height: 4px;
+              width: 4px;
+              border: none;
+              border-radius: 50%;
+              background-color: $bg-lightest;
+              margin-left: 0.25rem;
+            }
+            #span2 {
+              font-size: small;
+              font-weight: bold;
+              color: $bg-lightest;
+              margin-left: 0.25rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

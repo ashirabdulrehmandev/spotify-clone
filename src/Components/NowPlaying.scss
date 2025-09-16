@@ -1,0 +1,371 @@
+@use "reusables" as *;
+* {
+  margin: 0%;
+  padding: 0%;
+}
+$primary-width:87%;
+// @keyframes fadeIn {
+//   from { opacity: 0; }
+//   to { opacity: 1; }
+// }
+#nowPlaying {
+  // flex: 0;
+  height: 80vh;
+  min-width: 21vw;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: $bg-light;
+  padding: 1rem;
+
+  padding-right: 0%;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: $bg-lighter $bg-light;
+}
+
+#info {
+  #topSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 1.5rem;
+    span {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    #iconGroup {
+      display: flex;
+      #dottedOptions,
+      #closeIcon {
+        svg {
+          transform: rotate(90deg);
+          @include icon-small($bg-lightest);
+          padding: calc(0.25 * 1rem);
+        }
+        :hover {
+          background-color: $bg-lighter;
+          @include rounded;
+        }
+      }
+    }
+  }
+  #songInfo {
+    display: flex;
+    flex-direction: column;
+    height: 95%;
+    width: 95%;
+    img {
+      border: none;
+      border-radius: 0.5rem;
+      width: 23rem;
+      height: 23rem;
+    }
+    #textInfo {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      #title {
+        display: flex;
+        flex-direction: column;
+        #songTitle {
+          font-size: x-large;
+          font-weight: bolder;
+        }
+        #author {
+          font-weight: bold;
+          text-transform: capitalize;
+          color: $bg-lightest;
+        }
+        #author:hover {
+          text-decoration: underline;
+          color: $primary-white;
+        }
+      }
+      #icons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        // padding-right: 0.1rem;
+        #copyLink-icon {
+          @include icon-normal;
+          position: absolute;
+          right: 0px;
+          opacity: 0;
+          transition: all 0.5s;
+        }
+        //   #copyLink-icon:hover {
+
+        //     right: $iconsize;
+        //     transition: all 0.5s;
+        //   }
+        #add-icon {
+          @include icon-normal;
+        }
+      }
+    }
+    #textInfo:hover {
+      #icons #copyLink-icon {
+        right: $iconsize + 1rem;
+        opacity: 1;
+      }
+    }
+  }
+  #aboutArtist {
+    background-color: $bg-lighter;
+    border: none;
+    border-radius: 0.5rem;
+    width: 95%;
+    #top {
+      display: flex;
+      border: none;
+      border-radius: 0.5rem;
+      span {
+        font-size: medium;
+        font-weight: 700;
+        padding: 1rem;
+      }
+    }
+    #bottom {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+      #name {
+        font-size: large;
+        font-weight: bold;
+      }
+      #section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        #listenerCount {
+          color: $bg-lightest;
+          font-weight: 500;
+        }
+
+        button {
+          padding-top: 0.25rem;
+          padding-bottom: 0.25rem;
+          padding-left: 1.25rem;
+          padding-right: 1.25rem;
+          font-weight: 800;
+          background-color: rgba(255, 0, 0, 0);
+          color: $primary-white;
+          border: $primary-white 1px solid;
+          border-radius: 2rem;
+        }
+      }
+    }
+    #artist-dis {
+      display: flex;
+      max-width: 100%;
+      span {
+        width: 40ch;
+        text-align: start;
+        padding-left: 1rem;
+        color: $bg-lightest;
+      }
+      padding-bottom: 1rem;
+    }
+  }
+  #credits {
+    max-width: $primary-width;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    background-color: $bg-lighter;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    #top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      span {
+        font-size: large;
+        font-weight: 700;
+      }
+      button {
+        border: none;
+        background-color: $bg-lighter;
+        color: $bg-lightest;
+        font-weight: 800;
+        cursor: pointer;
+        &:hover{
+          color: $primary-white;
+        }
+      }
+    }
+    .artist {
+      display: flex;
+      flex-direction: column;
+      #name {
+        margin-top: 0.5rem;
+        font-weight: 600;
+      }
+      section {
+        padding-top: 0.25rem;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+
+        #roles {
+          max-width: 25ch;
+          text-align: start;
+          line-height: 1.25rem;
+          color: $bg-lightest;
+        }
+        button {
+          height: 2rem;
+          padding-top: 0.25rem;
+          padding-bottom: 0.25rem;
+          padding-left: 1.25rem;
+          padding-right: 1.25rem;
+          font-weight: 800;
+          background-color: rgba(255, 0, 0, 0);
+          color: $primary-white;
+          border: $primary-white 1px solid;
+          border-radius: 2rem;
+        }
+      }
+    }
+  }
+  #on-tour {
+    max-width: $primary-width;
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    background-color: $bg-lighter;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    #title {
+      font-size: large;
+      font-weight: 700;
+    }
+    section {
+      cursor: pointer;
+      padding-top: 1rem;
+      display: flex;
+      justify-content: flex-start;
+      &:hover{
+        text-decoration: underline;
+      }
+      #left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: black;
+        width: 3.5rem;
+        height: 3.5rem;
+        border: none;
+        border-radius: 0.25rem;
+        #month {
+          font-size: x-small;
+          font-weight: 800;
+        }
+        #day {
+          font-size: x-large;
+          font-weight: 700;
+          letter-spacing: -0.1rem;
+        }
+      }
+      #right {
+        margin-left: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        #location {
+          font-weight: 700;
+          font-size: large;
+          color: $bg-lightest;
+        }
+        #names {
+          color: $bg-lightest;
+          font-size: small;
+          font-weight: 700;
+          &:hover{
+            color: $primary-white;
+          }
+        }
+        #details {
+          display: flex;
+          color: $bg-lightest;
+          font-size: small;
+          font-weight: 700;
+          #circle {
+            background-color: $bg-lightest;
+            width: 0.25rem;
+            height: 0.25rem;
+            @include rounded;
+            margin-top: 0.25rem;
+            margin-left: 0.25rem;
+            margin-right: 0.25rem;
+          }
+        }
+        span {
+          padding-bottom: 0.25rem;
+        }
+      }
+    }
+  }
+  #next{
+    max-width: $primary-width;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    background-color: $bg-lighter;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    #top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      span {
+        font-size: large;
+        font-weight: 700;
+      }
+      button {
+        border: none;
+        background-color: $bg-lighter;
+        color: $bg-lightest;
+        font-weight: 800;
+        cursor: pointer;
+        &:hover{
+          color: $primary-white;
+        }
+      }
+    }
+    section{
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      #left{
+        display: flex;
+        img{
+          object-fit: cover;
+          width: 3.5rem;
+          height: 3.5rem;
+          border: none;
+          border-radius: 0.25rem;
+        }
+      }
+      #right{
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: column;
+        margin-left: 1rem;
+        #title{
+          color: $bg-lightest;
+          font-weight: 700;
+        }
+        #names{
+          color: $bg-lightest;
+          font-size: small;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
